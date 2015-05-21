@@ -26,7 +26,8 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
-
+    var bottomObstacles = []
+    var topObstacles = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,8 +47,29 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
                 // Resizes view size depending on device
             scene.size = skView.bounds.size
-            
-            skView.presentScene(scene)
+            var greenTopTexture = SKTexture(imageNamed: "obstacles/greenTop.png")
+            var icyTopTexture = SKTexture(imageNamed: "obstacles/icyTop.png")
+            var pinkTopTexture = SKTexture(imageNamed: "obstacles/pinkTop.png")
+            var yellowTopTexture = SKTexture(imageNamed: "obstacles/yellowTop.png")
+            // Bottom Textures
+            var greenBottomTexture = SKTexture(imageNamed: "obstacles/greenBottom.png")
+            var icyBottomTexture = SKTexture(imageNamed: "obstacles/icyBottom.png")
+            var pinkBottomTexture = SKTexture(imageNamed: "obstacles/pinkBottom.png")
+            var yellowBottomTexture = SKTexture(imageNamed: "obstacles/yellowBottom.png")
+
+            self.bottomObstacles =   [greenBottomTexture, icyBottomTexture, pinkBottomTexture, yellowBottomTexture]
+            self.topObstacles = [greenTopTexture, icyTopTexture, pinkTopTexture, yellowTopTexture]
+
+            SKTexture.preloadTextures(self.bottomObstacles as [AnyObject], withCompletionHandler: { () -> Void in
+                SKTexture.preloadTextures(self.topObstacles as [AnyObject], withCompletionHandler: { () -> Void in
+//                    scene.bottomObstacles = self.bottomObstacles as? [SKTexture]
+//                    scene.topObstacles = self.topObstacles as? [SKTexture]
+                    dispatch_sync(dispatch_get_main_queue(), { () -> Void in
+                         skView.presentScene(scene)
+                    })
+                    
+               })
+            })
         }
     }
 

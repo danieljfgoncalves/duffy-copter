@@ -17,7 +17,7 @@
 		E44B6DE91B0CE7F1000C5D40 /* Duffy_CopterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B6DE81B0CE7F1000C5D40 /* Duffy_CopterTests.swift */; };
 		E44B6E2A1B0D0829000C5D40 /* Idle in Resources */ = {isa = PBXBuildFile; fileRef = E44B6E291B0D0829000C5D40 /* Idle */; };
 		E44B6E2D1B0D9054000C5D40 /* bg in Resources */ = {isa = PBXBuildFile; fileRef = E44B6E2C1B0D9054000C5D40 /* bg */; };
-		E44B6E2F1B0E55CA000C5D40 /* Obstacles in Resources */ = {isa = PBXBuildFile; fileRef = E44B6E2E1B0E55CA000C5D40 /* Obstacles */; };
+		E44B6E311B0E6C1B000C5D40 /* obstacles in Resources */ = {isa = PBXBuildFile; fileRef = E44B6E301B0E6C1B000C5D40 /* obstacles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		E44B6DE81B0CE7F1000C5D40 /* Duffy_CopterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duffy_CopterTests.swift; sourceTree = "<group>"; };
 		E44B6E291B0D0829000C5D40 /* Idle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Idle; sourceTree = "<group>"; };
 		E44B6E2C1B0D9054000C5D40 /* bg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bg; sourceTree = "<group>"; };
-		E44B6E2E1B0E55CA000C5D40 /* Obstacles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Obstacles; sourceTree = "<group>"; };
+		E44B6E301B0E6C1B000C5D40 /* obstacles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = obstacles; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,7 @@
 		E44B6DF21B0CEC9A000C5D40 /* img */ = {
 			isa = PBXGroup;
 			children = (
-				E44B6E2E1B0E55CA000C5D40 /* Obstacles */,
+				E44B6E301B0E6C1B000C5D40 /* obstacles */,
 				E44B6E2C1B0D9054000C5D40 /* bg */,
 				E44B6DF31B0CECA8000C5D40 /* duffy */,
 			);
@@ -225,11 +225,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E44B6DDD1B0CE7F1000C5D40 /* LaunchScreen.xib in Resources */,
-				E44B6E2F1B0E55CA000C5D40 /* Obstacles in Resources */,
 				E44B6DDA1B0CE7F1000C5D40 /* Images.xcassets in Resources */,
 				E44B6E2A1B0D0829000C5D40 /* Idle in Resources */,
 				E44B6DD11B0CE7F1000C5D40 /* GameScene.sks in Resources */,
 				E44B6DD81B0CE7F1000C5D40 /* Main.storyboard in Resources */,
+				E44B6E311B0E6C1B000C5D40 /* obstacles in Resources */,
 				E44B6E2D1B0D9054000C5D40 /* bg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -446,6 +446,7 @@
 				E44B6DEE1B0CE7F1000C5D40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E44B6DEF1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "DuffyCopterTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +455,7 @@
 				E44B6DF11B0CE7F1000C5D40 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
