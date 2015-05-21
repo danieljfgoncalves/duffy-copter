@@ -15,6 +15,8 @@
 		E44B6DDA1B0CE7F1000C5D40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44B6DD91B0CE7F1000C5D40 /* Images.xcassets */; };
 		E44B6DDD1B0CE7F1000C5D40 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E44B6DDB1B0CE7F1000C5D40 /* LaunchScreen.xib */; };
 		E44B6DE91B0CE7F1000C5D40 /* Duffy_CopterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44B6DE81B0CE7F1000C5D40 /* Duffy_CopterTests.swift */; };
+		E44B6E2A1B0D0829000C5D40 /* Idle in Resources */ = {isa = PBXBuildFile; fileRef = E44B6E291B0D0829000C5D40 /* Idle */; };
+		E44B6E2D1B0D9054000C5D40 /* bg in Resources */ = {isa = PBXBuildFile; fileRef = E44B6E2C1B0D9054000C5D40 /* bg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E44B6DC91B0CE7F1000C5D40 /* Duffy Copter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Duffy Copter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44B6DC91B0CE7F1000C5D40 /* DuffyCopter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DuffyCopter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44B6DCD1B0CE7F1000C5D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E44B6DCE1B0CE7F1000C5D40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E44B6DD01B0CE7F1000C5D40 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -37,9 +39,11 @@
 		E44B6DD71B0CE7F1000C5D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E44B6DD91B0CE7F1000C5D40 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E44B6DDC1B0CE7F1000C5D40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		E44B6DE21B0CE7F1000C5D40 /* Duffy CopterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Duffy CopterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E44B6DE21B0CE7F1000C5D40 /* DuffyCopterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DuffyCopterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44B6DE71B0CE7F1000C5D40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E44B6DE81B0CE7F1000C5D40 /* Duffy_CopterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duffy_CopterTests.swift; sourceTree = "<group>"; };
+		E44B6E291B0D0829000C5D40 /* Idle */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Idle; sourceTree = "<group>"; };
+		E44B6E2C1B0D9054000C5D40 /* bg */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +67,7 @@
 		E44B6DC01B0CE7F1000C5D40 = {
 			isa = PBXGroup;
 			children = (
-				E44B6DCB1B0CE7F1000C5D40 /* Duffy Copter */,
+				E44B6DCB1B0CE7F1000C5D40 /* DuffyCopter */,
 				E44B6DE51B0CE7F1000C5D40 /* Duffy CopterTests */,
 				E44B6DCA1B0CE7F1000C5D40 /* Products */,
 			);
@@ -72,15 +76,16 @@
 		E44B6DCA1B0CE7F1000C5D40 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E44B6DC91B0CE7F1000C5D40 /* Duffy Copter.app */,
-				E44B6DE21B0CE7F1000C5D40 /* Duffy CopterTests.xctest */,
+				E44B6DC91B0CE7F1000C5D40 /* DuffyCopter.app */,
+				E44B6DE21B0CE7F1000C5D40 /* DuffyCopterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E44B6DCB1B0CE7F1000C5D40 /* Duffy Copter */ = {
+		E44B6DCB1B0CE7F1000C5D40 /* DuffyCopter */ = {
 			isa = PBXGroup;
 			children = (
+				E44B6DF21B0CEC9A000C5D40 /* img */,
 				E44B6DCE1B0CE7F1000C5D40 /* AppDelegate.swift */,
 				E44B6DD01B0CE7F1000C5D40 /* GameScene.sks */,
 				E44B6DD21B0CE7F1000C5D40 /* GameScene.swift */,
@@ -90,6 +95,7 @@
 				E44B6DDB1B0CE7F1000C5D40 /* LaunchScreen.xib */,
 				E44B6DCC1B0CE7F1000C5D40 /* Supporting Files */,
 			);
+			name = DuffyCopter;
 			path = "Duffy Copter";
 			sourceTree = "<group>";
 		};
@@ -118,12 +124,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E44B6DF21B0CEC9A000C5D40 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				E44B6E2C1B0D9054000C5D40 /* bg */,
+				E44B6DF31B0CECA8000C5D40 /* duffy */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
+		E44B6DF31B0CECA8000C5D40 /* duffy */ = {
+			isa = PBXGroup;
+			children = (
+				E44B6E291B0D0829000C5D40 /* Idle */,
+			);
+			name = duffy;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E44B6DC81B0CE7F1000C5D40 /* Duffy Copter */ = {
+		E44B6DC81B0CE7F1000C5D40 /* DuffyCopter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E44B6DEC1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "Duffy Copter" */;
+			buildConfigurationList = E44B6DEC1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "DuffyCopter" */;
 			buildPhases = (
 				E44B6DC51B0CE7F1000C5D40 /* Sources */,
 				E44B6DC61B0CE7F1000C5D40 /* Frameworks */,
@@ -133,14 +156,14 @@
 			);
 			dependencies = (
 			);
-			name = "Duffy Copter";
+			name = DuffyCopter;
 			productName = "Duffy Copter";
-			productReference = E44B6DC91B0CE7F1000C5D40 /* Duffy Copter.app */;
+			productReference = E44B6DC91B0CE7F1000C5D40 /* DuffyCopter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E44B6DE11B0CE7F1000C5D40 /* Duffy CopterTests */ = {
+		E44B6DE11B0CE7F1000C5D40 /* DuffyCopterTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E44B6DEF1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "Duffy CopterTests" */;
+			buildConfigurationList = E44B6DEF1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "DuffyCopterTests" */;
 			buildPhases = (
 				E44B6DDE1B0CE7F1000C5D40 /* Sources */,
 				E44B6DDF1B0CE7F1000C5D40 /* Frameworks */,
@@ -151,9 +174,9 @@
 			dependencies = (
 				E44B6DE41B0CE7F1000C5D40 /* PBXTargetDependency */,
 			);
-			name = "Duffy CopterTests";
+			name = DuffyCopterTests;
 			productName = "Duffy CopterTests";
-			productReference = E44B6DE21B0CE7F1000C5D40 /* Duffy CopterTests.xctest */;
+			productReference = E44B6DE21B0CE7F1000C5D40 /* DuffyCopterTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -174,7 +197,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E44B6DC41B0CE7F1000C5D40 /* Build configuration list for PBXProject "Duffy Copter" */;
+			buildConfigurationList = E44B6DC41B0CE7F1000C5D40 /* Build configuration list for PBXProject "DuffyCopter" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -187,8 +210,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E44B6DC81B0CE7F1000C5D40 /* Duffy Copter */,
-				E44B6DE11B0CE7F1000C5D40 /* Duffy CopterTests */,
+				E44B6DC81B0CE7F1000C5D40 /* DuffyCopter */,
+				E44B6DE11B0CE7F1000C5D40 /* DuffyCopterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -200,8 +223,10 @@
 			files = (
 				E44B6DDD1B0CE7F1000C5D40 /* LaunchScreen.xib in Resources */,
 				E44B6DDA1B0CE7F1000C5D40 /* Images.xcassets in Resources */,
+				E44B6E2A1B0D0829000C5D40 /* Idle in Resources */,
 				E44B6DD11B0CE7F1000C5D40 /* GameScene.sks in Resources */,
 				E44B6DD81B0CE7F1000C5D40 /* Main.storyboard in Resources */,
+				E44B6E2D1B0D9054000C5D40 /* bg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +263,7 @@
 /* Begin PBXTargetDependency section */
 		E44B6DE41B0CE7F1000C5D40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E44B6DC81B0CE7F1000C5D40 /* Duffy Copter */;
+			target = E44B6DC81B0CE7F1000C5D40 /* DuffyCopter */;
 			targetProxy = E44B6DE31B0CE7F1000C5D40 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -350,7 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Duffy Copter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DuffyCopter;
 			};
 			name = Debug;
 		};
@@ -360,7 +385,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Duffy Copter/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DuffyCopter;
 			};
 			name = Release;
 		};
@@ -378,7 +403,7 @@
 				);
 				INFOPLIST_FILE = "Duffy CopterTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DuffyCopterTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Duffy Copter.app/Duffy Copter";
 			};
 			name = Debug;
@@ -393,7 +418,7 @@
 				);
 				INFOPLIST_FILE = "Duffy CopterTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DuffyCopterTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Duffy Copter.app/Duffy Copter";
 			};
 			name = Release;
@@ -401,7 +426,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E44B6DC41B0CE7F1000C5D40 /* Build configuration list for PBXProject "Duffy Copter" */ = {
+		E44B6DC41B0CE7F1000C5D40 /* Build configuration list for PBXProject "DuffyCopter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E44B6DEA1B0CE7F1000C5D40 /* Debug */,
@@ -410,7 +435,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E44B6DEC1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "Duffy Copter" */ = {
+		E44B6DEC1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "DuffyCopter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E44B6DED1B0CE7F1000C5D40 /* Debug */,
@@ -418,7 +443,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		E44B6DEF1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "Duffy CopterTests" */ = {
+		E44B6DEF1B0CE7F1000C5D40 /* Build configuration list for PBXNativeTarget "DuffyCopterTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E44B6DF01B0CE7F1000C5D40 /* Debug */,
