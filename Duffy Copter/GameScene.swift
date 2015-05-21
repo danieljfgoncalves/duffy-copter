@@ -13,10 +13,7 @@ class GameScene: SKScene {
     // Set SpriteNodes
         // Set Duffy
     var duffy = SKSpriteNode()
-        // Set Obstacle Textures
-            // Top Textures
-
-            // Array of Top & Bottom
+        // Set Obstacule Textures arrays
     var bottomObstacles:[SKTexture]!
     var topObstacles: [SKTexture]!
     
@@ -25,26 +22,22 @@ class GameScene: SKScene {
         
         // Config Scene Boundaries
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame)
-        var greenTopTexture = SKTexture(imageNamed: "obstacles/greenTop.png")
-        var icyTopTexture = SKTexture(imageNamed: "obstacles/icyTop.png")
-        var pinkTopTexture = SKTexture(imageNamed: "obstacles/pinkTop.png")
-        var yellowTopTexture = SKTexture(imageNamed: "obstacles/yellowTop.png")
-        // Bottom Textures
-        var greenBottomTexture = SKTexture(imageNamed: "obstacles/greenBottom.png")
-        var icyBottomTexture = SKTexture(imageNamed: "obstacles/icyBottom.png")
-        var pinkBottomTexture = SKTexture(imageNamed: "obstacles/pinkBottom.png")
-        var yellowBottomTexture = SKTexture(imageNamed: "obstacles/yellowBottom.png")
         
-        self.bottomObstacles =   [greenBottomTexture, icyBottomTexture, pinkBottomTexture, yellowBottomTexture]
-        self.topObstacles = [greenTopTexture, icyTopTexture, pinkTopTexture, yellowTopTexture]
+//        // Set Obstacle Textextures
+//            // Top Textures
+//        var greenTopTexture = SKTexture(imageNamed: "obstacles/greenTop.png")
+//        var icyTopTexture = SKTexture(imageNamed: "obstacles/icyTop.png")
+//        var pinkTopTexture = SKTexture(imageNamed: "obstacles/pinkTop.png")
+//        var yellowTopTexture = SKTexture(imageNamed: "obstacles/yellowTop.png")
+//            // Bottom Textures
+//        var greenBottomTexture = SKTexture(imageNamed: "obstacles/greenBottom.png")
+//        var icyBottomTexture = SKTexture(imageNamed: "obstacles/icyBottom.png")
+//        var pinkBottomTexture = SKTexture(imageNamed: "obstacles/pinkBottom.png")
+//        var yellowBottomTexture = SKTexture(imageNamed: "obstacles/yellowBottom.png")
         
-//        SKTexture.preloadTextures(self.bottomObstacles, withCompletionHandler: { () -> Void in
-//            
-//        })
-//        
-//        SKTexture.preloadTextures(self.topObstacles, withCompletionHandler: { () -> Void in
-//            
-//        })
+//        self.bottomObstacles =   [greenBottomTexture, icyBottomTexture, pinkBottomTexture, yellowBottomTexture]
+//        self.topObstacles = [greenTopTexture, icyTopTexture, pinkTopTexture, yellowTopTexture]
+        
         // Config Duffy
             // Callback SKSpriteNode Image
         duffy = SKSpriteNode(imageNamed: "Idle/frame-1.png")
@@ -189,9 +182,9 @@ class GameScene: SKScene {
         var moveAndRemoveObstacles = SKAction.sequence([moveObstacles, removeObstacles])
         
 //        var randomIndex1 = 0
-        var randomIndex1 = Int(arc4random()) % Int(bottomObstacles.count)
+        var randomIndex1 = Int(arc4random()) % bottomObstacles.count
         
-            // Set Bottom Obstacle
+        // Set Bottom Obstacle
         var bottomObstacle = SKSpriteNode(texture: bottomObstacles[randomIndex1])
         bottomObstacle.setScale(0.07)
         bottomObstacle.position = CGPoint(x: CGRectGetMidX(frame) + frame.size.width, y: CGRectGetMidY(frame) - bottomObstacle.size.height / 2 - gap / 2 + obstacleOffset)
@@ -199,7 +192,7 @@ class GameScene: SKScene {
         bottomObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: bottomObstacle.size)
         bottomObstacle.physicsBody?.dynamic = false
         bottomObstacle.runAction(moveAndRemoveObstacles)
-            // Set Top Obstacle
+        // Set Top Obstacle
         var topObstacle = SKSpriteNode(texture: topObstacles[randomIndex1])
         topObstacle.setScale(0.07)
         topObstacle.position = CGPoint(x: CGRectGetMidX(frame) + frame.size.width, y: CGRectGetMidY(frame) + topObstacle.size.height / 2 + gap / 2 + obstacleOffset)
