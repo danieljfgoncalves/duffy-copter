@@ -24,6 +24,7 @@ class GameScene: SKScene {
         duffy = SKSpriteNode(imageNamed: "Idle/frame-1.png")
             // Set Position
         duffy.position = CGPoint(x: CGRectGetMidX(self.frame) / 2, y: CGRectGetMidY(self.frame))
+        duffy.zPosition = 100
             // Set Size
         duffy.setScale(0.05)
             // Iterate to rename images
@@ -41,70 +42,12 @@ class GameScene: SKScene {
         duffy.physicsBody?.dynamic = true
         duffy.physicsBody?.allowsRotation = false
         
-        // Config Background
-            // Set BG Textures
-        var bg0 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-0.png"))
-        bg0.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
-        bg0.size.height = self.frame.height
-        var bg1 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-1.png"))
-        bg1.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
-        bg1.size.height = self.frame.height
-        var bg2 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-2.png"))
-        bg2.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
-        bg2.size.height = self.frame.height
-        var bg3 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-3.png"))
-        bg3.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
-        bg3.size.height = self.frame.height
-        var bg4 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-4.png"))
-        bg4.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
-        bg4.size.height = self.frame.height
-            // Set Core BG Animation
-        var moveBG = SKAction.moveByX(-bg0.size.width, y: 0, duration: 10)
-        var replaceBG = SKAction.moveByX(bg0.size.width, y: 0, duration: 0)
-        var moveBGForever = SKAction.repeatActionForever(SKAction.sequence([moveBG, replaceBG]))
-        for var i:CGFloat = 0; i < 3; i++ {
-            bg0 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-0.png"))
-            bg0.position = CGPoint(x: bg0.size.width / 2 + bg0.size.width * i, y:CGRectGetMidY(self.frame))
-            bg0.size.height = self.frame.height
-            
-            bg1 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-1.png"))
-            bg1.position = bg0.position
-            bg1.size.height = self.frame.height
-            
-            bg2 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-2.png"))
-            bg2.position = bg0.position
-            bg2.size.height = self.frame.height
-            
-            bg3 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-3.png"))
-            bg3.position = bg0.position
-            bg3.size.height = self.frame.height
-            
-            bg4 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-4.png"))
-            bg4.position = bg0.position
-            bg4.size.height = self.frame.height
-            
-            bg0.runAction(moveBGForever)
-            bg0.speed = 0.25
-            bg1.runAction(moveBGForever)
-            bg1.speed = 1
-            bg2.runAction(moveBGForever)
-            bg2.speed = 2
-            bg3.runAction(moveBGForever)
-            bg3.speed = 3
-            bg4.runAction(moveBGForever)
-            bg4.speed = 3.5
-            self.addChild(bg0)
-            self.addChild(bg1)
-            self.addChild(bg2)
-            self.addChild(bg3)
-            self.addChild(bg4)
-            
-            func makeObstacles()
-            
-        }
-        
         // Add Child
         self.addChild(duffy)
+        
+        // Creating & Setting the spead of the BGs
+        parallaxBG(3.5) // Set speed of the foreground and it will auto increment further background
+        
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -125,4 +68,76 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
+    
+    
+    func parallaxBG(bgSpeed:CGFloat) {
+        
+        // Config Background
+        // Set BG Textures
+        var bg0 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-0.png"))
+        bg0.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        bg0.size.height = self.frame.height
+        var bg1 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-1.png"))
+        bg1.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        bg1.size.height = self.frame.height
+        var bg2 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-2.png"))
+        bg2.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        bg2.size.height = self.frame.height
+        var bg3 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-3.png"))
+        bg3.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        bg3.size.height = self.frame.height
+        var bg4 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-4.png"))
+        bg4.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidY(self.frame))
+        bg4.size.height = self.frame.height
+        // Set Core BG Animation
+        var moveBG = SKAction.moveByX(-bg0.size.width, y: 0, duration: 10)
+        var replaceBG = SKAction.moveByX(bg0.size.width, y: 0, duration: 0)
+        var moveBGForever = SKAction.repeatActionForever(SKAction.sequence([moveBG, replaceBG]))
+        for var i:CGFloat = 0; i < 3; i++ {
+            
+            // Set Cloned BGs
+            bg0 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-0.png"))
+            bg0.position = CGPoint(x: bg0.size.width / 2 + bg0.size.width * i, y:CGRectGetMidY(self.frame))
+            bg0.size.height = self.frame.height
+            bg1 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-1.png"))
+            bg1.position = bg0.position
+            bg1.size.height = self.frame.height
+            bg2 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-2.png"))
+            bg2.position = bg0.position
+            bg2.size.height = self.frame.height
+            bg3 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-3.png"))
+            bg3.position = bg0.position
+            bg3.size.height = self.frame.height
+            bg4 = SKSpriteNode(texture: SKTexture(imageNamed: "bg/bg-4.png"))
+            bg4.position = bg0.position
+            bg4.size.height = self.frame.height
+            
+            // Run BGs Animations
+            bg0.runAction(moveBGForever)
+            bg1.runAction(moveBGForever)
+            bg2.runAction(moveBGForever)
+            bg3.runAction(moveBGForever)
+            bg4.runAction(moveBGForever)
+            
+            // Set BGs Actions speed
+            var theBgSpeed = bgSpeed
+            bg4.speed = theBgSpeed
+            bg3.speed = theBgSpeed / 1.35
+            bg2.speed = theBgSpeed / 2
+            bg1.speed = theBgSpeed / 2.8
+            bg0.speed = theBgSpeed / 3
+            
+//            println("bg0speed:\(bg0.speed), bg1speed:\(bg1.speed), bg2speed:\(bg2.speed), bg3speed:\(bg3.speed), bg4speed:\(bg4.speed)")
+            
+            // Add bgs to scene
+            self.addChild(bg0)
+            self.addChild(bg1)
+            self.addChild(bg2)
+            self.addChild(bg3)
+            self.addChild(bg4)
+        }
+        
+    }
 }
+
+
