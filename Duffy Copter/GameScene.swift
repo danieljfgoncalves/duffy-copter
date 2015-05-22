@@ -61,11 +61,17 @@ class GameScene: SKScene {
         duffy.physicsBody?.dynamic = true
         duffy.physicsBody?.allowsRotation = false
         
-        // Add Child
+        // Add Duffy to Scene
         self.addChild(duffy)
         
-        // Creating & Setting the spead of the BGs
-        parallaxBG(1) // Set speed of the foreground and it will auto increment further background
+        // Timer to increment Speed of Game
+        
+        
+        // Creating & Setting the speed of the BGs
+        parallaxBG(1) // Set inicial speed of the foreground and it will auto increment further background
+        
+        // Set speed of Obstacles
+//        var obstacleSpeed:CGFloat = 1
         
         // Adding the non-random obstacles with a timer
         var obstaclesTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("makeObstacles"), userInfo: nil, repeats: true)
@@ -164,10 +170,10 @@ class GameScene: SKScene {
     func makeObstacles() {
         
         // Set Gap Size
-        var gap = duffy.size.height * 3
+        var gap = duffy.size.height * 2.1
         
         // Movement Amount
-        var movementAmount = arc4random() % UInt32(self.frame.size.height / 2)
+        var movementAmount = arc4random() % UInt32(self.frame.size.height / 2.5)
         
         // Obstacle Offset
         var obstacleOffset = CGFloat(movementAmount) - self.frame.size.height / 4
@@ -181,8 +187,9 @@ class GameScene: SKScene {
         // Move & Remove Obstacles
         var moveAndRemoveObstacles = SKAction.sequence([moveObstacles, removeObstacles])
         
-//        var randomIndex1 = 0
+        // Randomize Array Index (Obstacle Color)
         var randomIndex1 = Int(arc4random()) % bottomObstacles.count
+        var randomIndex2 = Int(arc4random()) % bottomObstacles.count
         
         // Set Bottom Obstacle
         var bottomObstacle = SKSpriteNode(texture: bottomObstacles[randomIndex1])
@@ -192,18 +199,66 @@ class GameScene: SKScene {
         bottomObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: bottomObstacle.size)
         bottomObstacle.physicsBody?.dynamic = false
         bottomObstacle.runAction(moveAndRemoveObstacles)
+//        bottomObstacle.speed = obstacleSpeed
+        
         // Set Top Obstacle
         var topObstacle = SKSpriteNode(texture: topObstacles[randomIndex1])
         topObstacle.setScale(0.07)
-        topObstacle.position = CGPoint(x: CGRectGetMidX(frame) + frame.size.width, y: CGRectGetMidY(frame) + topObstacle.size.height / 2 + gap / 2 + obstacleOffset)
+        topObstacle.position = CGPoint(x: bottomObstacle.position.x, y: CGRectGetMidY(frame) + topObstacle.size.height / 2 + gap / 2 + obstacleOffset)
         topObstacle.zPosition = 80
         topObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: topObstacle.size)
         topObstacle.physicsBody?.dynamic = false
         topObstacle.runAction(moveAndRemoveObstacles)
-
-        // Add Obstacles to Scene
+//        topObstacle.speed = obstacleSpeed
+        
+        // Set Extra Obstacle (Top, Bottom or Both)
+        var randomIntForIf = Int(arc4random()) % 4
+        //        println(randomIntForIf)
+        if randomIntForIf == 0 {
+            var extraBottomObstacle = SKSpriteNode(texture: bottomObstacles[randomIndex2])
+            extraBottomObstacle.setScale(0.07)
+            extraBottomObstacle.position = CGPoint(x: bottomObstacle.position.x * 1.25, y: CGRectGetMidY(frame) - bottomObstacle.size.height / 2 - gap / 1.5 + obstacleOffset)
+            extraBottomObstacle.zPosition = 80
+            extraBottomObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: extraBottomObstacle.size)
+            extraBottomObstacle.physicsBody?.dynamic = false
+            extraBottomObstacle.runAction(moveAndRemoveObstacles)
+            
+            var extraTopObstacle = SKSpriteNode(texture: topObstacles[randomIndex2])
+            extraTopObstacle.setScale(0.07)
+            extraTopObstacle.position = CGPoint(x: bottomObstacle.position.x * 1.25, y: CGRectGetMidY(frame) + bottomObstacle.size.height / 2 + gap / 1.5 + obstacleOffset)
+            extraTopObstacle.zPosition = 80
+            extraTopObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: extraTopObstacle.size)
+            extraTopObstacle.physicsBody?.dynamic = false
+            extraTopObstacle.runAction(moveAndRemoveObstacles)
+            
+            self.addChild(extraTopObstacle)
+            self.addChild(extraBottomObstacle)
+        } else if randomIntForIf == 1 {
+            var extraBottomObstacle = SKSpriteNode(texture: bottomObstacles[randomIndex2])
+            extraBottomObstacle.setScale(0.07)
+            extraBottomObstacle.position = CGPoint(x: bottomObstacle.position.x * 1.25, y: CGRectGetMidY(frame) - bottomObstacle.size.height / 2 - gap / 1.5 + obstacleOffset)
+            extraBottomObstacle.zPosition = 80
+            extraBottomObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: extraBottomObstacle.size)
+            extraBottomObstacle.physicsBody?.dynamic = false
+            extraBottomObstacle.runAction(moveAndRemoveObstacles)
+            
+            self.addChild(extraBottomObstacle)
+        } else if randomIntForIf == 2 {
+            var extraTopObstacle = SKSpriteNode(texture: topObstacles[randomIndex2])
+            extraTopObstacle.setScale(0.07)
+            extraTopObstacle.position = CGPoint(x: bottomObstacle.position.x * 1.25, y: CGRectGetMidY(frame) + bottomObstacle.size.height / 2 + gap / 1.5 + obstacleOffset)
+            extraTopObstacle.zPosition = 80
+            extraTopObstacle.physicsBody = SKPhysicsBody(rectangleOfSize: extraTopObstacle.size)
+            extraTopObstacle.physicsBody?.dynamic = false
+            extraTopObstacle.runAction(moveAndRemoveObstacles)
+            
+            self.addChild(extraTopObstacle)
+        } else { }
+        
+        // Add to Scene Main Obstacles
         self.addChild(bottomObstacle)
         self.addChild(topObstacle)
+        
     }
 }
 
